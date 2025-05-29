@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Animation Elements -->
+    <div class="bg-animation">
+        <div class="particle">💕</div>
+        <div class="particle">💖</div>
+        <div class="particle">💝</div>
+        <div class="particle">✨</div>
+        <div class="particle">🌟</div>
+    </div>
+
+
+    <!-- Hidden Message Modal -->
+    <div id="secretModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔒 Secret Message</h2>
+            <p>Enter our anniversary date to unlock a special message:</p>
+            <div class="input-group">
+                <input type="date" id="anniversaryInput" placeholder="YYYY-MM-DD">
+                <button id="unlockBtn">Unlock Message</button>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+            <div id="secretMessage" class="secret-message">
+                <h3>💕 My Secret Love Letter 💕</h3>
+                <div class="love-letter">
+                    <p>My darling, if you're reading this, you remembered our special day! Every moment since our
+                        anniversary has been a blessing. You are my sunrise, my moonlight, and everything beautiful in
+                        between. I love you more than words could ever express, and I promise to love you for all
+                        eternity.</p>
+                    <p>With all my heart,<br>Forever yours ❤️</p>
+                </div>
+                <div class="message-time">
+                    Unlocked on: <span id="unlockTime"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header id="home" class="section">
+            <div class="floating-hearts">
+                <span class="heart" style="left: 10%; animation-delay: 0s;">💕</span>
+                <span class="heart" style="left: 20%; animation-delay: 1s;">💖</span>
+                <span class="heart" style="left: 30%; animation-delay: 2s;">💝</span>
+                <span class="heart" style="left: 70%; animation-delay: 1.5s;">💗</span>
+                <span class="heart" style="left: 80%; animation-delay: 0.5s;">💘</span>
+                <span class="heart" style="left: 90%; animation-delay: 2.5s;">💞</span>
+            </div>
+            <h1 class="main-title">For My Beloved</h1>
+            <p class="subtitle">A digital love letter just for you</p>
+
+            <!-- Enhanced Action Buttons -->
+            <div class="action-buttons">
+                <button id="secretBtn" class="secret-btn">💌 Special Message</button>
+                <button id="playMusicBtn" class="music-btn">🎵 Play Our Song</button>
+                <button id="surpriseBtn" class="surprise-btn">🎁 Surprise Me</button>
+            </div>
+        </header>
+
+        <!-- Interactive Love Stats Dashboard -->
+        <section class="love-dashboard">
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-content">
+                        <div class="current-time">
+                            <span id="currentTime"></span>
+                        </div>
+                        <p class="stat-label">Right Now</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💕</div>
+                    <div class="stat-content">
+                        <div class="counter-display" id="loveCounter">∞</div>
+                        <p class="stat-label">Days I've Loved You</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💋</div>
+                    <div class="stat-content">
+                        <div class="counter-display" id="kissCounter">0</div>
+                        <p class="stat-label">Virtual Kisses Today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌟</div>
+                    <div class="stat-content">
+                        <div class="counter-display" id="smileCounter">0</div>
+                        <p class="stat-label">Times You Made Me Smile</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Love Message with Interactive Elements -->
+            <section class="love-message section" id="love-message">
+                <h2>My Dearest Love</h2>
+                <div class="interactive-message">
+                    <p class="love-text" id="mainLoveText">
+                        Every sunrise brings me joy knowing I get to share another day with you.
+                        Your smile lights up my world, your laugh is my favorite melody, and your
+                        love is the greatest gift I've ever received. This website is a small token
+                        of my endless love for you - a place where our memories live and our love story continues.
+                    </p>
+                    <button class="message-btn" onclick="generateLoveMessage()">💝 Generate New Love Message</button>
+                </div>
+            </section>
+
+            <!-- Enhanced Photo Gallery with Categories -->
+            <section class="photo-gallery section" id="memories">
+                <h3 class="gallery-title">Her Picture Perfect Moments</h3>
+                <div class="photo-grid">
+                    <div class="photo-placeholder" data-category="dates">
+                        <img src="img/1.jpg" alt="">
+                    </div>
+                    <div class="photo-placeholder" data-category="travel">
+                        <img src="img/2.jpg" alt="">
+                    </div>
+                    <div class="photo-placeholder" data-category="special">
+                        <img src="img/3.jpg" alt="">
+                    </div>
+                    <div class="photo-placeholder" data-category="everyday">
+                        <img src="img/4.jpg" alt="">
+                    </div>
+                    <div class="photo-placeholder" data-category="special">
+                        <img src="img/5.jpg" alt="">
+                    </div>
+                    <div class="photo-placeholder" data-category="travel">
+                        <img src="img/6.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Enhanced Memory Timeline -->
+            <section class="memory-timeline section" id="timeline">
+                <h3 class="timeline-title">Our Love Story</h3>
+                <div class="timeline-controls">
+                    <button id="timelinePlayBtn">▶️ Play Our Story</button>
+                    <button id="timelineResetBtn">🔄 Reset</button>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item" data-date="2023-01-15">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">The Day We Met</div>
+                            <div class="timeline-text">
+                                That magical moment when our eyes first met and I knew my life would never be the same.
+                            </div>
+                            <div class="timeline-details">
+                                <span class="timeline-location">📍 Coffee Shop on Main Street</span>
+                                <span class="timeline-weather">☀️ Sunny Day</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-date="2023-02-14">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Our First Kiss</div>
+                            <div class="timeline-text">
+                                Under the starlit sky, time stood still as we shared our first kiss - pure magic.
+                            </div>
+                            <div class="timeline-details">
+                                <span class="timeline-location">📍 Park Bench by the Lake</span>
+                                <span class="timeline-weather">🌙 Perfect Night</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-date="2023-08-20">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Moving In Together</div>
+                            <div class="timeline-text">
+                                Our first home together, where every corner holds memories of our growing love.
+                            </div>
+                            <div class="timeline-details">
+                                <span class="timeline-location">📍 Our Little Apartment</span>
+                                <span class="timeline-weather">🏠 Home Sweet Home</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-date="2024-05-24">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Today & Forever</div>
+                            <div class="timeline-text">
+                                Every day with you is a new adventure, and I can't wait to see what our future holds.
+                            </div>
+                            <div class="timeline-details">
+                                <span class="timeline-location">📍 Everywhere We Go</span>
+                                <span class="timeline-weather">💫 Infinite Possibilities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Love Notes Section -->
+            <section class="love-notes section" id="love-notes">
+                <h3 class="section-title">Daily Love Notes</h3>
+                <div class="notes-container">
+                    <div class="note-card active">
+                        <div class="note-date">Today</div>
+                        <div class="note-content">You make every ordinary moment extraordinary ✨</div>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-date">Yesterday</div>
+                        <div class="note-content">Thank you for being my constant source of happiness 💖</div>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-date">This Week</div>
+                        <div class="note-content">Your love is my favorite adventure 🌟</div>
+                    </div>
+                </div>
+                <div class="note-actions">
+                    <button id="prevNoteBtn">← Previous</button>
+                    <button id="addNoteBtn">💝 Add Love Note</button>
+                    <button id="nextNoteBtn">Next →</button>
+                </div>
+            </section>
+
+            <!-- Music Playlist Section -->
+            <section class="music-playlist section" id="playlist">
+                <h3 class="section-title">Songs That Remind Me of You</h3>
+                <div class="playlist-container">
+                    <div class="song-item">
+                        <div class="song-info">
+                            <div class="song-title">Perfect</div>
+                            <div class="song-artist">Ed Sheeran</div>
+                        </div>
+                        <button class="play-btn">▶️</button>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-info">
+                            <div class="song-title">Sa Bawat Sandali</div>
+                            <div class="song-artist">Amiel Sol</div>
+                        </div>
+                        <button class="play-btn">▶️</button>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-info">
+                            <div class="song-title">Bawat Daan</div>
+                            <div class="song-artist">Ebe Dancel and Zephanie Dimaranan </div>
+                        </div>
+                        <button class="play-btn">▶️</button>
+                    </div>
+                </div>
+                <div class="music-controls">
+                    <button id="shuffleBtn">🔀 Shuffle</button>
+                    <button id="createPlaylistBtn">➕ Add Song</button>
+                </div>
+            </section>
+
+            <!-- Interactive Love Games -->
+            <section class="love-games section">
+                <h3 class="section-title">Love Games for Us</h3>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h4>💕 Kiss Counter</h4>
+                        <p>Click to send virtual kisses!</p>
+                        <button onclick="sendKiss()">Send Kiss 💋</button>
+                        <div class="game-score">Kisses sent: <span id="kissScore">0</span></div>
+                    </div>
+                    <div class="game-card">
+                        <h4>🎯 Love Quiz</h4>
+                        <p>How well do you know me?</p>
+                        <button onclick="startQuiz()">Start Quiz</button>
+                        <div class="game-score">Best score: <span id="quizScore">0</span>/10</div>
+                    </div>
+                    <div class="game-card">
+                        <h4>💌 Random Love Message</h4>
+                        <p>Get a surprise love note!</p>
+                        <button onclick="randomLoveMessage()">Surprise Me!</button>
+                        <div id="randomMessage" class="random-message"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weather Widget -->
+            <section class="weather-love section">
+                <h3 class="section-title">Love Weather Report</h3>
+                <div class="weather-card">
+                    <div class="weather-main">
+                        <div class="weather-icon">☀️</div>
+                        <div class="weather-temp">100%</div>
+                        <div class="weather-desc">Sunny with Chance of Love</div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <span>Happiness Level:</span>
+                            <span>Maximum ❤️</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span>Romance Forecast:</span>
+                            <span>Increasing Daily 💕</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span>Love Pressure:</span>
+                            <span>Rising ⬆️</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Enhanced Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#memories">Our Memories</a></li>
+                        <li><a href="#timeline">Love Story</a></li>
+                        <li><a href="#playlist">Our Songs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Love Stats</h4>
+                    <div class="footer-stats">
+                        <div>💕 <span id="footerLoveCount">∞</span> Love Units</div>
+                        <div>📸 <span id="footerMemoryCount">4</span> Memories</div>
+                        <div>🎵 <span id="footerSongCount">3</span> Our Songs</div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Love Message</h4>
+                    <p id="footerLoveMessage">Every moment with you is a treasure ✨</p>
+                    <button onclick="changeFooterMessage()">New Message</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with <span class="footer-heart">❤️</span> for the love of my life</p>
+                <p style="margin-top: 10px; font-style: italic;">Forever yours, My Baby</p>
+                <div class="footer-signature">
+                    <span>Created with infinite love on <span id="creationDate"></span></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio element for background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="#" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
